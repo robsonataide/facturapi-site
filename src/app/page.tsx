@@ -28,7 +28,6 @@ function Logo() {
 const NAV_LINKS = [
   { label: "Funcionalidades", href: "#funcionalidades" },
   { label: "Documentação", href: "#documentacao" },
-  { label: "Contacto", href: "#contacto" },
 ];
 
 function Navbar() {
@@ -615,44 +614,6 @@ function Features() {
   );
 }
 
-/* ─── CTA ───────────────────────────────────────────────────────────────────── */
-function CTA() {
-  return (
-    <section id="contacto" style={{ background: GREEN, padding: "80px 24px" }}>
-      <div style={{ maxWidth: 640, margin: "0 auto", textAlign: "center" }}>
-        <h2 style={{ fontSize: "clamp(26px, 3.5vw, 42px)", fontWeight: 800, color: "white", letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: 16 }}>
-          Pronto para modernizar a sua facturação?
-        </h2>
-        <p style={{ fontSize: 17, color: "rgba(255,255,255,0.8)", lineHeight: 1.65, marginBottom: 36 }}>
-          Junte-se às empresas que simplificaram os seus processos de facturação com o Facturapi.
-        </p>
-        <a
-          href="mailto:hello@facturapi.pt"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 8,
-            padding: "14px 32px",
-            borderRadius: 999,
-            fontSize: 15,
-            fontWeight: 700,
-            color: GREEN,
-            background: "white",
-            textDecoration: "none",
-            transition: "opacity 0.15s, transform 0.1s",
-          }}
-          onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.92"; e.currentTarget.style.transform = "translateY(-1px)"; }}
-          onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.transform = "translateY(0)"; }}
-        >
-          Entrar em contacto
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-        </a>
-      </div>
-    </section>
-  );
-}
-
 /* ─── Footer ────────────────────────────────────────────────────────────────── */
 function Footer() {
   return (
@@ -683,15 +644,18 @@ function Footer() {
         </div>
 
         <div style={{ display: "flex", flexWrap: "wrap", gap: 20 }}>
-          {["Política de Privacidade", "Termos de Uso", "Contacto"].map((link) => (
+          {[
+            { label: "Política de Privacidade", href: "/privacidade" },
+            { label: "Termos de Uso", href: "/termos" },
+          ].map(({ label, href }) => (
             <a
-              key={link}
-              href="#"
+              key={href}
+              href={href}
               style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", textDecoration: "none", transition: "color 0.15s" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.9)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
             >
-              {link}
+              {label}
             </a>
           ))}
         </div>
@@ -710,7 +674,6 @@ export default function Page() {
         <Hero />
         <ValueCards />
         <Features />
-        <CTA />
       </main>
       <Footer />
     </>
