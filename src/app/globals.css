@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --color-navy: #2c3e50;
+  --color-navy-light: #3d5166;
+  --color-navy-dark: #1e2b38;
+  --color-green: #28a745;
+  --color-green-light: #34c65a;
+  --color-green-dark: #1e7e34;
+  --color-bg: #f8faf9;
+  --color-bg-dark: #eef3f0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-navy);
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Grid pattern for hero */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
