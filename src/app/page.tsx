@@ -25,15 +25,34 @@ function Logo() {
 }
 
 /* ─── Navbar ────────────────────────────────────────────────────────────────── */
+const NAV_LINKS = [
+  { label: "Funcionalidades", href: "#funcionalidades" },
+  { label: "Documentação", href: "#documentacao" },
+  { label: "Contacto", href: "#contacto" },
+];
+
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
+
+  // Close menu on resize to desktop
+  useEffect(() => {
+    if (!isMobile) setOpen(false);
+  }, [isMobile]);
 
   return (
     <header
@@ -43,9 +62,9 @@ function Navbar() {
         left: 0,
         right: 0,
         zIndex: 100,
-        background: scrolled ? "rgba(255,255,255,0.97)" : "rgba(255,255,255,0.9)",
+        background: scrolled || open ? "rgba(255,255,255,0.98)" : "rgba(255,255,255,0.9)",
         backdropFilter: "blur(12px)",
-        borderBottom: scrolled ? "1px solid #e5e7eb" : "1px solid transparent",
+        borderBottom: scrolled || open ? "1px solid #e5e7eb" : "1px solid transparent",
         transition: "all 0.2s",
       }}
     >
@@ -64,50 +83,131 @@ function Navbar() {
           <Logo />
         </a>
 
-        {/* Desktop */}
-        <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
-          {["Funcionalidades|#funcionalidades", "Documentação|#documentacao", "Contacto|#contacto"].map((item) => {
-            const [label, href] = item.split("|");
-            return (
+        {/* Desktop nav */}
+        {!isMobile && (
+          <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
+            {NAV_LINKS.map(({ label, href }) => (
               <a
                 key={href}
                 href={href}
-                style={{
-                  fontSize: 14,
-                  fontWeight: 500,
-                  color: "#64748b",
-                  textDecoration: "none",
-                  transition: "color 0.15s",
-                }}
+                style={{ fontSize: 14, fontWeight: 500, color: "#64748b", textDecoration: "none", transition: "color 0.15s" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = NAVY)}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "#64748b")}
               >
                 {label}
               </a>
-            );
-          })}
+            ))}
+            <a
+              href="#contacto"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "8px 20px",
+                borderRadius: 999,
+                fontSize: 14,
+                fontWeight: 600,
+                color: "white",
+                background: GREEN,
+                textDecoration: "none",
+                transition: "opacity 0.15s",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+            >
+              Começar
+            </a>
+          </div>
+        )}
+
+        {/* Hamburger button — mobile only */}
+        {isMobile && (
+          <button
+            onClick={() => setOpen(!open)}
+            aria-label={open ? "Fechar menu" : "Abrir menu"}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: 5,
+              width: 40,
+              height: 40,
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: 8,
+              borderRadius: 8,
+            }}
+          >
+            <span style={{
+              display: "block", width: 22, height: 2, borderRadius: 2, background: NAVY,
+              transition: "transform 0.2s, opacity 0.2s",
+              transform: open ? "translateY(7px) rotate(45deg)" : "none",
+            }} />
+            <span style={{
+              display: "block", width: 22, height: 2, borderRadius: 2, background: NAVY,
+              transition: "opacity 0.2s",
+              opacity: open ? 0 : 1,
+            }} />
+            <span style={{
+              display: "block", width: 22, height: 2, borderRadius: 2, background: NAVY,
+              transition: "transform 0.2s, opacity 0.2s",
+              transform: open ? "translateY(-7px) rotate(-45deg)" : "none",
+            }} />
+          </button>
+        )}
+      </nav>
+
+      {/* Mobile dropdown menu */}
+      {isMobile && open && (
+        <div style={{
+          background: "white",
+          borderTop: "1px solid #e5e7eb",
+          padding: "12px 24px 20px",
+          display: "flex",
+          flexDirection: "column",
+          gap: 4,
+        }}>
+          {NAV_LINKS.map(({ label, href }) => (
+            <a
+              key={href}
+              href={href}
+              onClick={() => setOpen(false)}
+              style={{
+                display: "block",
+                padding: "12px 0",
+                fontSize: 16,
+                fontWeight: 500,
+                color: NAVY,
+                textDecoration: "none",
+                borderBottom: "1px solid #f1f5f9",
+              }}
+            >
+              {label}
+            </a>
+          ))}
           <a
             href="#contacto"
+            onClick={() => setOpen(false)}
             style={{
-              display: "inline-flex",
+              display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              padding: "8px 20px",
+              marginTop: 12,
+              padding: "13px 0",
               borderRadius: 999,
-              fontSize: 14,
-              fontWeight: 600,
+              fontSize: 15,
+              fontWeight: 700,
               color: "white",
               background: GREEN,
               textDecoration: "none",
-              transition: "opacity 0.15s",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
             Começar
           </a>
         </div>
-      </nav>
+      )}
     </header>
   );
 }
