@@ -26,7 +26,7 @@ export default function PrivacidadePage() {
               <rect x="8" y="18" width="14" height="2" rx="1" fill="white" />
               <rect x="8" y="23" width="10" height="2" rx="1" fill="rgba(255,255,255,0.45)" />
             </svg>
-            <span style={{ fontSize: 16, fontWeight: 800, color: NAVY, letterSpacing: "-0.03em" }}>facturapi</span>
+            <span style={{ fontSize: 16, fontWeight: 800, letterSpacing: "-0.03em" }}><span style={{ color: NAVY }}>factur</span><span style={{ color: GREEN }}>api</span></span>
           </a>
           <a href="/" style={{ fontSize: 14, fontWeight: 500, color: "#64748b", textDecoration: "none" }}>← Voltar ao início</a>
         </div>
@@ -122,7 +122,7 @@ export default function PrivacidadePage() {
               <rect x="8" y="18" width="14" height="2" rx="1" fill="white" />
               <rect x="8" y="23" width="10" height="2" rx="1" fill="rgba(255,255,255,0.45)" />
             </svg>
-            <span style={{ fontSize: 14, fontWeight: 800, color: "white", letterSpacing: "-0.03em" }}>facturapi</span>
+            <span style={{ fontSize: 14, fontWeight: 800, letterSpacing: "-0.03em" }}><span style={{ color: "white" }}>factur</span><span style={{ color: GREEN }}>api</span></span>
             <span style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginLeft: 4 }}>© 2026 Todos os direitos reservados.</span>
           </div>
           <div style={{ display: "flex", gap: 20 }}>

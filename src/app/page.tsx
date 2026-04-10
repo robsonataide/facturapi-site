@@ -19,8 +19,8 @@ function Logo({ dark = false }: { dark?: boolean }) {
         <rect x="8" y="18" width="14" height="2" rx="1" fill="white" />
         <rect x="8" y="23" width="10" height="2" rx="1" fill="rgba(255,255,255,0.45)" />
       </svg>
-      <span style={{ fontSize: 18, fontWeight: 800, color: wordmark, letterSpacing: "-0.03em" }}>
-        facturapi
+      <span style={{ fontSize: 18, fontWeight: 800, letterSpacing: "-0.03em" }}>
+        <span style={{ color: wordmark }}>factur</span><span style={{ color: GREEN }}>api</span>
       </span>
     </span>
   );
