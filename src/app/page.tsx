@@ -29,6 +29,7 @@ function Logo({ dark = false }: { dark?: boolean }) {
 /* ─── Navbar ────────────────────────────────────────────────────────────────── */
 const NAV_LINKS = [
   { label: "Funcionalidades", href: "/funcionalidades" },
+  { label: "Roadmap", href: "/roadmap" },
   { label: "Documentação", href: "/documentacao" },
 ];
 
