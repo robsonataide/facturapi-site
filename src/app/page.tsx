@@ -8,17 +8,21 @@ const BG = "#F8FAF9";
 
 /* ─── Logo ─────────────────────────────────────────────────────────────────── */
 function Logo({ dark = false }: { dark?: boolean }) {
-  const stroke = dark ? "white" : NAVY;
-  const textFill = dark ? "white" : NAVY;
+  const bg = dark ? "rgba(255,255,255,0.12)" : NAVY;
+  const wordmark = dark ? "white" : NAVY;
   return (
-    <svg width="140" height="52" viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Facturapi">
-      <path d="M40 90 Q40 140 100 140" stroke={stroke} strokeWidth="12" strokeLinecap="round" />
-      <path d="M80 20 Q20 20 20 70" stroke={stroke} strokeWidth="12" strokeLinecap="round" />
-      <circle cx="60" cy="80" r="28" fill={GREEN} />
-      <path d="M48 78 L56 86 L72 70" stroke="white" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
-      <text x="120" y="95" fontFamily="sans-serif" fontSize="52" fontWeight="bold" fill={textFill}>Factur</text>
-      <text x="285" y="95" fontFamily="sans-serif" fontSize="52" fontWeight="300" fill={GREEN}>API</text>
-    </svg>
+    <span style={{ display: "flex", alignItems: "center", gap: 10 }}>
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill={bg} />
+        <rect x="8" y="8" width="16" height="2" rx="1" fill={GREEN} />
+        <rect x="8" y="13" width="12" height="2" rx="1" fill="white" />
+        <rect x="8" y="18" width="14" height="2" rx="1" fill="white" />
+        <rect x="8" y="23" width="10" height="2" rx="1" fill="rgba(255,255,255,0.45)" />
+      </svg>
+      <span style={{ fontSize: 18, fontWeight: 800, color: wordmark, letterSpacing: "-0.03em" }}>
+        facturapi
+      </span>
+    </span>
   );
 }
 
@@ -627,11 +631,9 @@ function Footer() {
           gap: 16,
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
           <Logo dark />
-          <span style={{ fontSize: 13, color: "rgba(255,255,255,0.4)" }}>
-            © 2026 Todos os direitos reservados.
-          </span>
+          <span style={{ fontSize: 13, color: "rgba(255,255,255,0.4)" }}>© 2026 Todos os direitos reservados.</span>
         </div>
 
         <div style={{ display: "flex", flexWrap: "wrap", gap: 20 }}>
