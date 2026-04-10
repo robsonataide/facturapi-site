@@ -26,9 +26,19 @@ html {
 body {
   background-color: var(--color-bg);
   color: var(--color-navy);
-  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+  font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Responsive: features grid → single column on mobile */
+@media (max-width: 700px) {
+  .features-row {
+    grid-template-columns: 1fr !important;
+  }
+  .features-row > div {
+    order: unset !important;
+  }
 }
 
 /* Grid pattern for hero */
