@@ -445,10 +445,10 @@ export default function FuncionalidadesPage() {
               ]} />
             </Card>
           </div>
-          {/* Endpoint table */}
+          {/* Endpoint preview */}
           <div style={{ background: "white", border: "1px solid #e8f0eb", borderRadius: 16, overflow: "hidden" }}>
             <div style={{ padding: "20px 24px", borderBottom: "1px solid #f1f5f9" }}>
-              <h3 style={{ fontSize: 15, fontWeight: 700, color: NAVY }}>Referência rápida de endpoints</h3>
+              <h3 style={{ fontSize: 15, fontWeight: 700, color: NAVY }}>Alguns endpoints</h3>
             </div>
             <div style={{ overflowX: "auto" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
@@ -461,32 +461,18 @@ export default function FuncionalidadesPage() {
                 </thead>
                 <tbody>
                   {[
-                    ["GET", "/management/clients", "Listar clientes"],
-                    ["POST", "/management/clients", "Criar cliente"],
-                    ["GET", "/management/clients/{id}/keys", "Listar API keys"],
-                    ["POST", "/management/clients/{id}/keys", "Gerar API key"],
-                    ["DELETE", "/management/clients/{id}/keys/{keyId}", "Revogar API key"],
-                    ["GET/PUT", "/management/clients/{id}/nif", "Obter/actualizar NIF config"],
-                    ["GET", "/management/series", "Listar séries"],
-                    ["POST", "/management/series", "Criar série"],
-                    ["POST", "/management/series/{id}/register-at", "Registar série na AT"],
-                    ["GET", "/management/invoices", "Listar facturas"],
-                    ["POST", "/management/invoices", "Criar factura"],
-                    ["POST", "/management/invoices/{id}/issue", "Emitir factura"],
-                    ["POST", "/management/invoices/{id}/cancel", "Cancelar factura"],
-                    ["GET", "/management/invoices/{id}/pdf", "Download PDF"],
-                    ["POST", "/management/invoices/{id}/sync-atcud", "Gerar ATCUD"],
-                    ["GET", "/management/products", "Listar produtos"],
-                    ["POST", "/management/products", "Criar produto"],
-                    ["DELETE", "/management/products/{id}", "Eliminar produto"],
-                    ["GET", "/management/saft", "Exportar SAF-T XML"],
+                    ["POST", "/invoices", "Criar factura"],
+                    ["POST", "/invoices/{id}/issue", "Emitir — torna o documento legal"],
+                    ["GET", "/invoices/{id}/pdf", "Download PDF com ATCUD e QR Code"],
+                    ["POST", "/series", "Criar série de documentos"],
+                    ["GET", "/saft", "Exportar SAF-T(PT) v1.04"],
                   ].map(([method, path, desc], i) => (
                     <tr key={path} style={{ borderTop: "1px solid #f1f5f9", background: i % 2 === 0 ? "white" : "rgba(248,250,249,0.5)" }}>
                       <td style={{ padding: "10px 20px", whiteSpace: "nowrap" as const }}>
                         <span style={{
                           fontFamily: "monospace", fontSize: 11, fontWeight: 700, padding: "2px 8px", borderRadius: 5,
-                          background: method.startsWith("GET") ? "rgba(59,130,246,0.1)" : method.startsWith("POST") ? "rgba(40,167,69,0.1)" : "rgba(220,38,38,0.1)",
-                          color: method.startsWith("GET") ? "#3b82f6" : method.startsWith("POST") ? GREEN : "#dc2626",
+                          background: method === "GET" ? "rgba(59,130,246,0.1)" : "rgba(40,167,69,0.1)",
+                          color: method === "GET" ? "#3b82f6" : GREEN,
                         }}>
                           {method}
                         </span>
@@ -495,6 +481,11 @@ export default function FuncionalidadesPage() {
                       <td style={{ padding: "10px 20px", color: "#64748b" }}>{desc}</td>
                     </tr>
                   ))}
+                  <tr style={{ borderTop: "1px solid #f1f5f9", background: "rgba(248,250,249,0.5)" }}>
+                    <td colSpan={3} style={{ padding: "12px 20px", color: "#94a3b8", fontSize: 13, fontStyle: "italic" }}>
+                      ... e muito mais — gestão de clientes, produtos, séries, recibos, notas de crédito, webhooks e SDKs.
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
