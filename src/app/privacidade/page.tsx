@@ -18,15 +18,15 @@ export default function PrivacidadePage() {
         borderBottom: "1px solid #e5e7eb",
       }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px", height: 64, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
-            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-              <rect width="32" height="32" rx="8" fill={NAVY} />
-              <rect x="8" y="8" width="16" height="2" rx="1" fill={GREEN} />
-              <rect x="8" y="13" width="12" height="2" rx="1" fill="white" />
-              <rect x="8" y="18" width="14" height="2" rx="1" fill="white" />
-              <rect x="8" y="23" width="10" height="2" rx="1" fill="rgba(255,255,255,0.4)" />
+          <a href="/" style={{ textDecoration: "none" }}>
+            <svg width="120" height="45" viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Facturapi">
+              <path d="M40 90 Q40 140 100 140" stroke={NAVY} strokeWidth="12" strokeLinecap="round" />
+              <path d="M80 20 Q20 20 20 70" stroke={NAVY} strokeWidth="12" strokeLinecap="round" />
+              <circle cx="60" cy="80" r="28" fill={GREEN} />
+              <path d="M48 78 L56 86 L72 70" stroke="white" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+              <text x="120" y="95" fontFamily="sans-serif" fontSize="52" fontWeight="bold" fill={NAVY}>Factur</text>
+              <text x="285" y="95" fontFamily="sans-serif" fontSize="52" fontWeight="300" fill={GREEN}>API</text>
             </svg>
-            <span style={{ fontSize: 16, fontWeight: 800, color: NAVY, letterSpacing: "-0.03em" }}>facturapi</span>
           </a>
           <a href="/" style={{ fontSize: 14, fontWeight: 500, color: "#64748b", textDecoration: "none" }}>← Voltar ao início</a>
         </div>
@@ -114,7 +114,17 @@ export default function PrivacidadePage() {
 
       <footer style={{ background: NAVY, padding: "32px 24px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
-          <span style={{ fontSize: 13, color: "rgba(255,255,255,0.4)" }}>© 2026 Facturapi. Todos os direitos reservados.</span>
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <svg width="100" height="37" viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M40 90 Q40 140 100 140" stroke="white" strokeWidth="12" strokeLinecap="round" />
+              <path d="M80 20 Q20 20 20 70" stroke="white" strokeWidth="12" strokeLinecap="round" />
+              <circle cx="60" cy="80" r="28" fill={GREEN} />
+              <path d="M48 78 L56 86 L72 70" stroke="white" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+              <text x="120" y="95" fontFamily="sans-serif" fontSize="52" fontWeight="bold" fill="white">Factur</text>
+              <text x="285" y="95" fontFamily="sans-serif" fontSize="52" fontWeight="300" fill={GREEN}>API</text>
+            </svg>
+            <span style={{ fontSize: 13, color: "rgba(255,255,255,0.4)" }}>© 2026 Facturapi. Todos os direitos reservados.</span>
+          </div>
           <div style={{ display: "flex", gap: 20 }}>
             <a href="/privacidade" style={{ fontSize: 13, color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>Política de Privacidade</a>
             <a href="/termos" style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>Termos de Uso</a>
