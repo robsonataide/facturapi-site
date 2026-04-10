@@ -29,7 +29,7 @@ function Logo({ dark = false }: { dark?: boolean }) {
 /* ─── Navbar ────────────────────────────────────────────────────────────────── */
 const NAV_LINKS = [
   { label: "Funcionalidades", href: "#funcionalidades" },
-  { label: "Documentação", href: "#documentacao" },
+  { label: "Documentação", href: "/documentacao" },
 ];
 
 function Navbar() {
@@ -98,26 +98,6 @@ function Navbar() {
                 {label}
               </a>
             ))}
-            <a
-              href="#contacto"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "8px 20px",
-                borderRadius: 999,
-                fontSize: 14,
-                fontWeight: 600,
-                color: "white",
-                background: GREEN,
-                textDecoration: "none",
-                transition: "opacity 0.15s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-            >
-              Começar
-            </a>
           </div>
         )}
 
@@ -188,25 +168,6 @@ function Navbar() {
               {label}
             </a>
           ))}
-          <a
-            href="#contacto"
-            onClick={() => setOpen(false)}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              marginTop: 12,
-              padding: "13px 0",
-              borderRadius: 999,
-              fontSize: 15,
-              fontWeight: 700,
-              color: "white",
-              background: GREEN,
-              textDecoration: "none",
-            }}
-          >
-            Começar
-          </a>
         </div>
       )}
     </header>
@@ -333,7 +294,7 @@ function Hero() {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
           </a>
           <a
-            href="#contacto"
+            href="/documentacao"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -350,7 +311,7 @@ function Hero() {
             onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.08)")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
           >
-            Entrar em contacto
+            Documentação
           </a>
         </div>
 
@@ -586,24 +547,6 @@ function Features() {
                   {f.title}
                 </h3>
                 <p style={{ fontSize: 16, color: "#64748b", lineHeight: 1.7 }}>{f.text}</p>
-                <a
-                  href="#contacto"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: 6,
-                    marginTop: 24,
-                    fontSize: 14,
-                    fontWeight: 600,
-                    color: GREEN,
-                    textDecoration: "none",
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.75")}
-                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-                >
-                  Saber mais
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-                </a>
               </div>
 
               {/* Visual */}
