@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const plusJakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-plus-jakarta",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -23,6 +23,10 @@ export const metadata: Metadata = {
     "factura electrónica",
   ],
   authors: [{ name: "Facturapi" }],
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: "/icon.svg",
+  },
   openGraph: {
     title: "Facturapi — API de Facturação Portuguesa",
     description:
@@ -32,14 +36,22 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#2C3E50",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-PT" className={plusJakarta.variable}>
-      <body className="font-sans antialiased">{children}</body>
+    <html lang="pt-PT" className={inter.variable}>
+      <body style={{ fontFamily: "var(--font-inter), 'Inter', system-ui, sans-serif" }} className="antialiased">
+        {children}
+      </body>
     </html>
   );
 }
