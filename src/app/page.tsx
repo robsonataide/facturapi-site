@@ -28,7 +28,7 @@ function Logo({ dark = false }: { dark?: boolean }) {
 
 /* ─── Navbar ────────────────────────────────────────────────────────────────── */
 const NAV_LINKS = [
-  { label: "Funcionalidades", href: "#funcionalidades" },
+  { label: "Funcionalidades", href: "/funcionalidades" },
   { label: "Documentação", href: "/documentacao" },
 ];
 
@@ -273,7 +273,7 @@ function Hero() {
         {/* CTAs */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "center", marginBottom: 56 }}>
           <a
-            href="#funcionalidades"
+            href="/funcionalidades"
             style={{
               display: "inline-flex",
               alignItems: "center",
