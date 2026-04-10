@@ -19,14 +19,14 @@ export default function TermosPage() {
       }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px", height: 64, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
-            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="32" height="32" rx="8" fill={NAVY} />
               <rect x="8" y="8" width="16" height="2" rx="1" fill={GREEN} />
               <rect x="8" y="13" width="12" height="2" rx="1" fill="white" />
               <rect x="8" y="18" width="14" height="2" rx="1" fill="white" />
               <rect x="8" y="23" width="10" height="2" rx="1" fill="rgba(255,255,255,0.45)" />
             </svg>
-            <span style={{ fontSize: 16, fontWeight: 800, letterSpacing: "-0.03em" }}><span style={{ color: NAVY }}>factur</span><span style={{ color: GREEN }}>api</span></span>
+            <span style={{ fontSize: 18, fontWeight: 800, letterSpacing: "-0.03em" }}><span style={{ color: NAVY }}>factur</span><span style={{ color: GREEN }}>api</span></span>
           </a>
           <a href="/" style={{ fontSize: 14, fontWeight: 500, color: "#64748b", textDecoration: "none" }}>← Voltar ao início</a>
         </div>
